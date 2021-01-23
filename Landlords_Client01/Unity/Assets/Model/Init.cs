@@ -25,13 +25,14 @@ namespace ETModel
 				Game.Scene.AddComponent<GlobalConfigComponent>();
 				Game.Scene.AddComponent<ResourcesComponent>();
 				Game.Scene.AddComponent<TimerComponent>();
-				//Game.Scene.AddComponent<FrameTestComponet>();
-				//练习3
-				TestRoom room = ComponentFactory.Create<TestRoom>();
-				room.AddComponent<TimeTestComponent>();
-				room.GetComponent<TimeTestComponent>().Run(Typebehavior.Waiting, 5000);
-
-				ETModel.Game.Scene.GetComponent<ResourcesComponent>().LoadBundle("config.unity3d");
+                //Game.Scene.AddComponent<FrameTestComponet>();
+                #region 第三节任务8
+                //添加UI组件
+                Game.Scene.AddComponent<UIComponent>();
+				//执行斗地主初始事件，也就是创建LandLogin界面
+				Game.EventSystem.Run(UIEventType.LandInitSceneStart);
+                #endregion
+                ETModel.Game.Scene.GetComponent<ResourcesComponent>().LoadBundle("config.unity3d");
 				Game.Scene.AddComponent<ConfigComponent>();
 				ETModel.Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle("config.unity3d");
 
