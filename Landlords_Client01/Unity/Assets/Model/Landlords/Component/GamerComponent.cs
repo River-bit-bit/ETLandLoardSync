@@ -3,13 +3,15 @@ using System.Linq;
 
 namespace ETModel 
 {
+    [ObjectSystem]
     public class GamerComponentAwakeSystem : AwakeSystem<GamerComponent>
     {
         public override void Awake(GamerComponent self)
         {
-            self.
+            self.Awake();
         }
     }
+
     public class GamerComponent : Component
     {
         public static GamerComponent Instance { get; private set; }
@@ -34,10 +36,10 @@ namespace ETModel
             }
             base.Dispose();
 
-            //foreach () 
-            //{
-            //
-            //}
+            foreach (Gamer gamer in this.idGamers.Values)
+            {
+                gamer.Dispose();
+            }
         }
 
         public void Add(Gamer gamer)

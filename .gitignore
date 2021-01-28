@@ -1,0 +1,6 @@
+*.csproj
+*.sln
+*.suo
+Landlords_Client01/Unity/Library/
+Landlords_Client01/Unity/obj/
+Landlords_Client01/Unity/Temp/
