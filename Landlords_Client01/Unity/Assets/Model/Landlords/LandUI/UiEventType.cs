@@ -12,7 +12,9 @@ namespace ETModel
 
     public static partial class UIEventType
     {
+        //斗地主EventIdType
         public const string LandInitSceneStart = "LandInitSceneStart";
+        public const string LandLoginFinish = "LandLoginFinish";
     }
 
     [Event(UIEventType.LandInitSceneStart)]
@@ -24,4 +26,13 @@ namespace ETModel
         }
     }
 
+    //移除登录界面事件
+    [Event(UIEventType.LandLoginFinish)]
+    public class LandLoginFinish : AEvent
+    {
+        public override void Run()
+        {
+            Game.Scene.GetComponent<UIComponent>().Remove(LandUIType.LandLogin);
+        }
+    }
 }

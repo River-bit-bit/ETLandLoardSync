@@ -10,5 +10,12 @@
         public const int ERR_UserMoneyLessError = 210003;
         public const int ERR_PlayCardError = 210004;
         public const int ERR_LoginError = 210005;
+        #region----------------------第二节任务10自定义错误--------------------
+        public const int ERR_AccountAlreadyRegisted = 300001;
+        public const int ERR_RepeatedAccountExist = 300002;
+        public const int ERR_UserNotOnline = 300003;
+        public const int ERR_CreateNewCharacter = 300004;
+        #endregion
+
     }
 }

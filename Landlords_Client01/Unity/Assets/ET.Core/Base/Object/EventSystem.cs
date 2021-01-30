@@ -54,6 +54,7 @@ namespace ETModel
 			this.types.Clear();
 			foreach (Assembly value in this.assemblies.Values)
 			{
+				var types = value.GetTypes();
 				foreach (Type type in value.GetTypes())
 				{
 					object[] objects = type.GetCustomAttributes(typeof(BaseAttribute), false);

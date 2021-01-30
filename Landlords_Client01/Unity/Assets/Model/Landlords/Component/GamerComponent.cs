@@ -16,7 +16,7 @@ namespace ETModel
     {
         public static GamerComponent Instance { get; private set; }
 
-        //public User MyUser;
+        public User MyUser;
 
         /// <summary>
         /// UserID Gamer
@@ -40,6 +40,9 @@ namespace ETModel
             {
                 gamer.Dispose();
             }
+
+            this.idGamers.Clear();
+            Instance = null;
         }
 
         public void Add(Gamer gamer)
@@ -47,5 +50,37 @@ namespace ETModel
             this.idGamers.Add(gamer.UserID, gamer);
         }
 
+        public Gamer Get(long userId)
+        {
+            Gamer gamer;
+            this.idGamers.TryGetValue(userId, out gamer);
+            return gamer;
+        }
+
+        public void Remove(long userId) 
+        {
+            Gamer gamer;
+            this.idGamers.TryGetValue(userId, out gamer);
+            this.idGamers.Remove(userId);
+            gamer?.Dispose();
+        }
+
+        public void RemoveNoDispose(long userId) 
+        {
+            this.idGamers.Remove(userId);
+        }
+
+        public int Count 
+        {
+            get 
+            {
+                return this.idGamers.Count;
+            }
+        }
+
+        public Gamer[] GetAll() 
+        {
+            return this.idGamers.Values.ToArray();
+        }
     }
 }
